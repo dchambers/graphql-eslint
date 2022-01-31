@@ -1,5 +1,11 @@
 # @graphql-eslint/eslint-plugin
 
+## 3.8.0
+
+### Minor Changes
+
+- 0da135f: feat: add new option `OperationDefinition` in `require-description` rule
+
 ## 3.7.0
 
 ### Minor Changes
