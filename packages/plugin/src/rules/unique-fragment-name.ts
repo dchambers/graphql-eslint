@@ -35,7 +35,7 @@ export const checkNode = (
           .map(f => `\t${relative(process.cwd(), getOnDiskFilepath(f.filePath))}`)
           .join('\n'),
       },
-      loc: getLocation(node.name.loc, documentName),
+      loc: getLocation(node.name, documentName),
     });
   }
 };

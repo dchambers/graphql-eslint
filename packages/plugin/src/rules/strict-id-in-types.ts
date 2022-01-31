@@ -183,7 +183,7 @@ const rule: GraphQLESLintRule<[StrictIdInTypesRuleConfig]> = {
         // we can extend this rule later.
         if (validIds.length !== 1) {
           context.report({
-            loc: getLocation(node.name.loc, typeName),
+            loc: getLocation(node.name, typeName),
             messageId: RULE_ID,
             data: {
               typeName,

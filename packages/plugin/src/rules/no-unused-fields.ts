@@ -77,7 +77,7 @@ const rule: GraphQLESLintRule = {
         }
 
         context.report({
-          loc: getLocation(node.loc, fieldName),
+          loc: getLocation(node.name, fieldName),
           messageId: UNUSED_FIELD,
           data: { fieldName },
           suggest: [

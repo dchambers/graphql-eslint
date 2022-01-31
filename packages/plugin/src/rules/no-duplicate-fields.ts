@@ -70,7 +70,7 @@ const rule: GraphQLESLintRule = {
     ): void {
       if (usedFields.has(fieldName)) {
         context.report({
-          loc: getLocation((node.kind === Kind.FIELD && node.alias ? node.alias : node).loc, fieldName, {
+          loc: getLocation(node.kind === Kind.FIELD && node.alias ? node.alias : node, fieldName, {
             offsetEnd: node.kind === Kind.VARIABLE_DEFINITION ? 0 : 1,
           }),
           messageId: NO_DUPLICATE_FIELDS,

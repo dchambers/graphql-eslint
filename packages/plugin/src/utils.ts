@@ -1,6 +1,17 @@
 import { statSync } from 'fs';
 import { dirname } from 'path';
-import { Lexer, GraphQLSchema, Source, Kind } from 'graphql';
+import {
+  Lexer,
+  GraphQLSchema,
+  Source,
+  Kind,
+  NameNode,
+  SelectionSetNode,
+  StringValueNode,
+  EnumValueNode,
+  VariableDefinitionNode,
+  OperationDefinitionNode,
+} from 'graphql';
 import { AST } from 'eslint';
 import { asArray, Source as LoaderSource } from '@graphql-tools/utils';
 import lowerCase from 'lodash.lowercase';
@@ -8,6 +19,7 @@ import chalk from 'chalk';
 import { GraphQLESLintRuleContext } from './types';
 import { SiblingOperations } from './sibling-operations';
 import { UsedFields, ReachableTypes } from './graphql-ast';
+import { GraphQLESTreeNode } from '.';
 
 export function requireSiblingsOperations(
   ruleName: string,
@@ -192,11 +204,13 @@ export const convertCase = (style: CaseStyle, str: string): string => {
 };
 
 export function getLocation(
-  loc: Partial<AST.SourceLocation>,
+  node: GraphQLESTreeNode<
+    NameNode | StringValueNode | EnumValueNode | VariableDefinitionNode | SelectionSetNode | OperationDefinitionNode
+  >,
   fieldName = '',
   offset?: { offsetStart?: number; offsetEnd?: number }
 ): AST.SourceLocation {
-  const { start } = loc;
+  const { start } = node.loc;
 
   /*
    * ESLint has 0-based column number

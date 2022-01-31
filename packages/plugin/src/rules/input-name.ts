@@ -108,7 +108,7 @@ const rule: GraphQLESLintRule<[InputNameRuleConfig]> = {
         if (shouldCheckType((node as any).parent.parent)) {
           const name = node.name.value;
           context.report({
-            loc: getLocation(node.loc, name),
+            loc: getLocation(node.name, name),
             message: `Input "${name}" should be called "input"`,
           });
         }
@@ -134,7 +134,7 @@ const rule: GraphQLESLintRule<[InputNameRuleConfig]> = {
             name.toLowerCase() !== mutationName.toLowerCase()
           ) {
             context.report({
-              loc: getLocation(node.loc, name),
+              loc: getLocation(node.name, name),
               message: `InputType "${name}" name should be "${mutationName}"`,
             });
           }

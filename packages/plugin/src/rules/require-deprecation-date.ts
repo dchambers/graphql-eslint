@@ -74,7 +74,7 @@ const rule: GraphQLESLintRule<[{ argumentName?: string }]> = {
 
         if (!deletionDateNode) {
           context.report({
-            loc: getLocation(node.loc, node.name.value, { offsetEnd: 0 }),
+            loc: getLocation(node.name, node.name.value, { offsetEnd: 0 }),
             messageId: MESSAGE_REQUIRE_DATE,
           });
           return;

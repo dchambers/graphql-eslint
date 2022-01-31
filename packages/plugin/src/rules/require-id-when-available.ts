@@ -149,7 +149,7 @@ const rule: GraphQLESLintRule<[RequireIdWhenAvailableRuleConfig], true> = {
         }
 
         context.report({
-          loc: getLocation(node.loc),
+          loc: getLocation(node),
           messageId: MESSAGE_ID,
           data: {
             checkedFragments: checkedFragmentSpreads.size === 0 ? '' : `(${[...checkedFragmentSpreads].join(', ')}) `,

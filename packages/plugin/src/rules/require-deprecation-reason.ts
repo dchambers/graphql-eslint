@@ -48,7 +48,7 @@ const rule: GraphQLESLintRule = {
 
         if (!value) {
           context.report({
-            loc: getLocation(node.loc, node.name.value, { offsetEnd: 0 }),
+            loc: getLocation(node.name, node.name.value, { offsetEnd: 0 }),
             message: 'Directive "@deprecated" must have a reason!',
           });
         }

@@ -47,7 +47,7 @@ const rule: GraphQLESLintRule = {
         for (const duplicate of duplicates) {
           const enumName = duplicate.name.value;
           context.report({
-            loc: getLocation(duplicate.loc, enumName),
+            loc: getLocation(duplicate.name, enumName),
             message: `Case-insensitive enum values duplicates are not allowed! Found: "${enumName}"`,
           });
         }

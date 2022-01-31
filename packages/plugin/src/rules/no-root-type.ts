@@ -82,7 +82,7 @@ const rule: GraphQLESLintRule<[NoRootTypeConfig]> = {
       [selector](node: GraphQLESTreeNode<NameNode>) {
         const typeName = node.value;
         context.report({
-          loc: getLocation(node.loc, typeName),
+          loc: getLocation(node, typeName),
           message: `Root type "${typeName}" is forbidden`,
         });
       },

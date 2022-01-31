@@ -1,6 +1,7 @@
 import {
   InterfaceTypeDefinitionNode,
   InterfaceTypeExtensionNode,
+  NameNode,
   ObjectTypeDefinitionNode,
   ObjectTypeExtensionNode,
 } from 'graphql';
@@ -53,6 +54,7 @@ const rule: GraphQLESLintRule = {
         const lowerTypeName = typeName.toLowerCase();
 
         for (const field of node.fields) {
+          const xxx: GraphQLESTreeNode<NameNode> = field.name;
           const fieldName = field.name.value;
 
           if (fieldName.toLowerCase().startsWith(lowerTypeName)) {
@@ -62,7 +64,7 @@ const rule: GraphQLESLintRule = {
                 typeName,
               },
               messageId: NO_TYPENAME_PREFIX,
-              loc: getLocation(field.loc, lowerTypeName),
+              loc: getLocation(field.name, lowerTypeName),
             });
           }
         }

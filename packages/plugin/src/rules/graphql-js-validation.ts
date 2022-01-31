@@ -49,7 +49,7 @@ function validateDocument(
       );
 
       context.report({
-        loc: getLocation({ start: error.locations[0] }, token?.value),
+        loc: getLocation({ loc: { start: error.locations[0] } } as any, token?.value),
         message: error.message,
       });
     }

@@ -40,7 +40,7 @@ const rule: GraphQLESLintRule = {
     return {
       'OperationDefinition[name=undefined]'(node) {
         context.report({
-          loc: getLocation(node.loc, node.operation),
+          loc: getLocation(node, node.operation),
           data: {
             operation: node.operation,
           },

@@ -79,7 +79,7 @@ const rule: GraphQLESLintRule = {
 
         if (!reachableTypes.has(typeName)) {
           context.report({
-            loc: getLocation(node.name.loc, typeName, { offsetStart: node.kind === Kind.DIRECTIVE_DEFINITION ? 2 : 1 }),
+            loc: getLocation(node.name, typeName, { offsetStart: node.kind === Kind.DIRECTIVE_DEFINITION ? 2 : 1 }),
             messageId: UNREACHABLE_TYPE,
             data: { typeName },
             suggest: [

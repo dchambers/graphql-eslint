@@ -69,7 +69,7 @@ const rule: GraphQLESLintRule = {
           const hasQueryType = fields.some(field => getTypeName(field) === queryType.name);
           if (!hasQueryType) {
             context.report({
-              loc: getLocation(node.loc, typeName),
+              loc: getLocation(node, typeName),
               message: `Mutation result type "${graphQLType.name}" must contain field of type "${queryType.name}"`,
             });
           }

@@ -137,7 +137,7 @@ const rule: GraphQLESLintRule<[RequireDescriptionRuleConfig]> = {
 
         if (description.length === 0) {
           context.report({
-            loc: isOperation ? getLocation(node.loc, node.operation) : getLocation(node.name.loc, node.name.value),
+            loc: isOperation ? getLocation(node, node.operation) : getLocation(node.name, node.name.value),
             messageId: RULE_ID,
             data: {
               nodeType: node.kind,

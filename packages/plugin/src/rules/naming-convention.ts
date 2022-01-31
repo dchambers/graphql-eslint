@@ -276,7 +276,7 @@ const rule: GraphQLESLintRule<[NamingConventionRuleConfig]> = {
         const [trailingUnderscores] = nodeName.match(/_*$/);
         const suggestedName = leadingUnderscores + renameToName + trailingUnderscores;
         context.report({
-          loc: getLocation(node.loc, node.value),
+          loc: getLocation(node, node.value),
           message: `${nodeType} "${nodeName}" should ${errorMessage}`,
           suggest: [
             {
@@ -339,7 +339,7 @@ const rule: GraphQLESLintRule<[NamingConventionRuleConfig]> = {
       const name = node.value;
       const renameToName = name.replace(new RegExp(isLeading ? '^_+' : '_+$'), '');
       context.report({
-        loc: getLocation(node.loc, name),
+        loc: getLocation(node, name),
         message: `${isLeading ? 'Leading' : 'Trailing'} underscores are not allowed`,
         suggest: [
           {

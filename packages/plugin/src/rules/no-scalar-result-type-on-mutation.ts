@@ -49,7 +49,7 @@ const rule: GraphQLESLintRule = {
         const graphQLType = schema.getType(typeName);
         if (isScalarType(graphQLType)) {
           context.report({
-            loc: getLocation(node.loc, typeName),
+            loc: getLocation(node, typeName),
             message: `Unexpected scalar result type "${typeName}"`,
           });
         }

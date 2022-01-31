@@ -22,5 +22,5 @@ exports[` 4`] = `
 
 exports[` 5`] = `
 > 1 | type Old { oldField: ID @deprecated }
-    |                         ^^^^^^^^^^^ Directive "@deprecated" must have a deletion date
+    |                          ^^^^^^^^^^^ Directive "@deprecated" must have a deletion date
 `;

@@ -71,7 +71,7 @@ const rule: GraphQLESLintRule = {
             if (!isEslintComment && line !== prev.line && next.kind === TokenKind.NAME && linesAfter < 2) {
               context.report({
                 messageId: HASHTAG_COMMENT,
-                loc: getLocation({ start: { line, column } }),
+                loc: getLocation({ loc: { start: { line, column } } } as any),
               });
             }
           }
